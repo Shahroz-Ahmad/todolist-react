@@ -7,15 +7,11 @@ import PopUp from './PopUp'
 
 function Content({ popup, setPopup }) {
 
-  const { state, fetchdata, deleteTask , addTask } = useContext(todoContext)
+  const { state, fetchdata, deleteTask } = useContext(todoContext)
 
   useEffect(() => {
     fetchdata()
   }, [state.todo]);
-
-  // const handleDelete =(id)=>{
-  //   deleteTask(id)
-  // }
 
   return (
     <section className={`min-h-screen relative col-span-3 ${state.darkmode ? 'bg-gray-900 text-white' : ' bg-gray-200'}`}>
@@ -37,9 +33,7 @@ function Content({ popup, setPopup }) {
                 <button onClick={() => deleteTask(ele.id)}>
                   <i class={`fa-solid fa-trash-can hover:text-red-500 ${state.darkmode ? 'trext-white' : ' text-black'}`}></i>
                 </button>
-                
               </div>
-
             </div>
           ))}
         </div>
